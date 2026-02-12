@@ -13,6 +13,11 @@ export default function App() {
   );
 }
 
+/**Componente che: 
+ * - usa il hook useState per salvare permanentemente lo stato on/off, come fosse una var. globale del componente (vale solo per questo componente)
+ * - usa useEffect per eseguire solo al primo render il corpo (la setInterval)
+ * - mostra un'immagine svg  
+ */
 function YellowBulb() {
   const [isOnYellow, setIsOnYellow] = useState(false);
   useEffect(() => {
@@ -31,6 +36,11 @@ function YellowBulb() {
   );
 }
 
+/**Componente che: 
+ * - usa il hook useState per salvare permanentemente lo stato on/off, come fosse una var. globale del componente (vale solo per questo componente)
+ * - usa useEffect per eseguire solo al primo render il corpo (la setInterval)
+ * - mostra un'immagine svg  
+ */
 function BlueBulb(noPadding) {
   const [isOn, setIsOn] = useState(false);
   useEffect(() => {
