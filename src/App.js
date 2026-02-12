@@ -1,24 +1,50 @@
-import React from "react";
-import "./style.css";
+import React, { useState, useEffect } from 'react';
+import './style.css';
+import lightBulb from './assets/light-bulb.svg';
 
 export default function App() {
   return (
     <div>
       <h1>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
-      <PurpleBulb />
+      <YellowBulb />
+      <BlueBulb />
     </div>
   );
 }
 
-function PurpleBulb() {
-  let isOn = false
-  setInterval(() => {
-    isOn = !isOn;
-  }, 1000);
+function YellowBulb() {
+  const [isOnYellow, setIsOnYellow] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsOnYellow((prev) => !prev);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
   return (
-    <div class="bulb-container">
-      <img className="{isOn ? 'light-on' : 'light-off'}" src={"https://staging.svgrepo.com/show/4204/light-bulb.svg"} />
+    <div className="bulb-container">
+      <img
+        className={isOnYellow ? 'light-on' : 'light-off'}
+        src={lightBulb}
+      />
+    </div>
+  );
+}
+
+function BlueBulb() {
+  const [isOn, setIsOn] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsOn((prev) => !prev);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <div className="bulb-container">
+      <img
+        className={isOn ? 'light-on-blue' : 'light-off-blue'}
+        src={lightBulb}
+      />
     </div>
   );
 }
