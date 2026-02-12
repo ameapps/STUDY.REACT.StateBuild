@@ -8,7 +8,7 @@ export default function App() {
       <h1>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
       <YellowBulb />
-      <BlueBulb />
+      <BlueBulb noPadding={true}/>
     </div>
   );
 }
@@ -31,7 +31,7 @@ function YellowBulb() {
   );
 }
 
-function BlueBulb() {
+function BlueBulb(noPadding) {
   const [isOn, setIsOn] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +40,7 @@ function BlueBulb() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="bulb-container">
+    <div className="bulb-container" style={noPadding ? {paddingTop: 0} : {}}>
       <img
         className={isOn ? 'light-on-blue' : 'light-off-blue'}
         src={lightBulb}
